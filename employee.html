@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Employee Profile</title>
+  <link rel="stylesheet" href="./src/css/toast.css">
+  <link rel="stylesheet" href="./src/css/employee.css">
+  <link rel="stylesheet" href="./src/css/loading.css">
+  <link rel="stylesheet" href="./src/css/spiner.css">
+</head>
+<body>
+  <div class="profile-container">
+    <!-- Cover Photo -->
+    <div class="cover-video">
+      <video src="./assets/videos/cover-video.mp4" muted autoplay loop></video>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-photo">
+        <img src="./assets/images/human-img.png" alt="Profile Photo">
+      </div>
+      <div class="profile-info">
+        <h1 class="employee-name"></h1>
+        <p class="employee-department">Department: <span class="IT"></span></p>
+      </div>
+      <button class="edit-profile-btn">Edit Profile</button>
+    </div>
+  </div>
+
+  <div class="task-container-for-flex">
+    <div class="task-container">
+        <h2>Task Overview</h2>
+        <div class="task-box">
+        <div class="task-item assigned">
+            <p>Assigned Tasks</p>
+            <span class="task-count" id="assignedCount">0</span>
+        </div>
+        <div class="task-item accepted">
+            <p>Accepted Tasks</p>
+            <span class="task-count" id="acceptedCount">0</span>
+        </div>
+        <div class="task-item completed">
+            <p>Completed Tasks</p>
+            <span class="task-count" id="completedCount">0</span>
+        </div>
+        <div class="task-item failed">
+            <p>Failed Tasks</p>
+            <span class="task-count" id="failedCount">0</span>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="task-card-container-for-flex">
+    <div class="task-card-container">
+      <div class="emty-employee">
+        <span><i class="fa-solid fa-users-slash"></i></span>
+        <h3>No tasks have been assigned yet.</h3>
+      </div>
+
+     <!-- <div class="task-card">
+    <div class="task-header">
+      <h3 class="task-title">Task Title</h3>
+    </div>
+    <div class="task-body">
+      <p class="task-description">
+        This is a detailed description of the task. It provides insight into what needs to be done and any relevant instructions.
+      </p>
+    </div>
+    <div class="task-actions">
+      <button class="task-btn accept">Accept Task</button>
+      <button class="task-btn complete">Complete task</button>
+      <button class="task-btn fail">Fail task</button>
+    </div>
+     </div> -->
+
+    </div>
+  </div>
+
+
+  <section class="employee-info-section">
+  <div class="employee-info-card">
+    <div class="employee-info-header">
+      <h2>Your Persnal Information</h2>
+    </div>
+    <div class="employee-info-body">
+      <div class="employee-info-row">
+        <span class="info-label">Name:</span>
+        <span class="info-value fullName">John Doe</span>
+      </div>
+      <div class="employee-info-row">
+        <span class="info-label">Email:</span>
+        <span class="info-value email">johndoe@example.com</span>
+      </div>
+      <div class="employee-info-row">
+        <span class="info-label">Salary:</span>
+        <span class="info-value salary">$80,000</span>
+      </div>
+      <div class="employee-info-row">
+        <span class="info-label">Joining Date:</span>
+        <span class="info-value joining-date">January 1, 2023</span>
+      </div>
+      <div class="employee-info-row">
+        <span class="info-label">Description:</span>
+        <span class="info-value desc">
+          John is a highly skilled software engineer with expertise in backend and frontend technologies. He excels in team collaboration and problem-solving.
+        </span>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+  <div class="modal">
+  <div class="modal-content">
+    <h2>Edit Profile</h2>
+    <form class="profileForm">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Enter your fullName" required>
+      </div>
+      <div class="profile-pic-upload">
+        <label for="profile-pic" class="upload-area">
+          <span class="closeImg"><i class="fa-solid fa-xmark"></i></span>
+          <img class="previewImg" alt="">
+          <span class="upload-icon"><i class="fa-solid fa-upload"></i></span>
+          <span class="upload-text">Upload Profile Picture</span>
+          <input type="file" id="profile-pic" accept="image/*" hidden>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn save-btn">Update profile</button>
+        <button type="button" class="btn cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+  </div>
+
+  <footer>
+    <p>ABDULS TEAM &COPY; 2025</p>
+    <button class="logout">Sign-Out</button>
+  </footer>
+
+    <!-- Toast meassages -->
+    <div class="notifications"></div>
+
+    <!-- SPINNER FOR LOADING -->
+    <div id="spinner" class="spinner-overlay">
+      <div class="spinner"></div>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="./src/js/employee.js"></script>
+</body>
+</html>
+
+
